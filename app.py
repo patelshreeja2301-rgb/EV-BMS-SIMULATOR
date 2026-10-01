@@ -19,12 +19,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-/* Hide Streamlit's built-in top toolbar / Deploy / menu */
-[data-testid="stToolbar"] {
-    display: none !important;
-}
-/* Hide Streamlit menu and footer, but KEEP header/sidebar toggle visible */
-
+/* Keep Streamlit header visible so the sidebar can always be reopened */
 [data-testid="stToolbar"] {
     display: none !important;
 }
@@ -33,17 +28,15 @@ st.markdown("""
     display: none !important;
 }
 
-footer {
-    display: none !important;
-}
-
-/* Keep Streamlit header visible so sidebar can be opened again */
 header {
     visibility: visible !important;
     display: block !important;
 }
 
-/* Keep the dashboard itself fully visible */
+footer {
+    display: none !important;
+}
+
 html { scroll-behavior: smooth; }
 
 .stApp {
@@ -53,8 +46,8 @@ html { scroll-behavior: smooth; }
 
 .block-container {
     max-width: 1450px;
-    padding-top: 1.2rem;
-    padding-bottom: 3rem;
+    padding-top: 1.0rem;
+    padding-bottom: 2.2rem;
 }
 
 section[data-testid="stSidebar"] {
@@ -63,7 +56,7 @@ section[data-testid="stSidebar"] {
 }
 
 section[data-testid="stSidebar"] .block-container {
-    padding-top: 1.2rem;
+    padding-top: 1.0rem;
 }
 
 .nav-title {
@@ -71,7 +64,7 @@ section[data-testid="stSidebar"] .block-container {
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 1.2px;
-    margin: 18px 0 9px 2px;
+    margin: 12px 0 8px 2px;
 }
 
 .nav-link {
@@ -81,8 +74,8 @@ section[data-testid="stSidebar"] .block-container {
     background: #ffffff;
     border: 1px solid #d9e3ec;
     border-radius: 11px;
-    padding: 11px 13px;
-    margin: 7px 0;
+    padding: 10px 13px;
+    margin: 5px 0;
     font-weight: 700;
 }
 
@@ -95,7 +88,7 @@ section[data-testid="stSidebar"] .block-container {
 .hero {
     background: linear-gradient(120deg, #102f50, #174f7d);
     border-radius: 22px;
-    padding: 30px 34px;
+    padding: 26px 32px;
     color: white;
     box-shadow: 0 10px 30px rgba(16,47,80,.13);
 }
@@ -113,35 +106,35 @@ section[data-testid="stSidebar"] .block-container {
 }
 
 .online {
-    margin-top: 18px;
+    margin-top: 14px;
     color: #48e0a5;
     font-weight: 800;
 }
 
 .section {
     scroll-margin-top: 20px;
-    margin-top: 35px;
+    margin-top: 26px;
 }
 
 .section-title {
     color: #102f50;
     font-size: 25px;
     font-weight: 850;
-    margin: 0 0 14px;
+    margin: 0 0 10px;
 }
 
 .section-sub {
     color: #6b7d90;
-    margin-top: -7px;
-    margin-bottom: 18px;
+    margin-top: -4px;
+    margin-bottom: 12px;
 }
 
 .metric-card {
     background: white;
     border: 1px solid #dce5ed;
     border-radius: 16px;
-    padding: 20px;
-    min-height: 128px;
+    padding: 18px;
+    min-height: 120px;
     box-shadow: 0 5px 18px rgba(20,45,70,.07);
 }
 
@@ -155,20 +148,20 @@ section[data-testid="stSidebar"] .block-container {
     color: #102f50;
     font-size: 31px;
     font-weight: 850;
-    margin-top: 10px;
+    margin-top: 7px;
 }
 
 .metric-note {
     color: #8797a8;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .panel {
     background: white;
     border: 1px solid #dce5ed;
     border-radius: 16px;
-    padding: 20px;
+    padding: 18px;
     box-shadow: 0 5px 18px rgba(20,45,70,.06);
 }
 
@@ -177,7 +170,7 @@ section[data-testid="stSidebar"] .block-container {
     border: 1px solid #9ddcc2;
     color: #08764d;
     border-radius: 14px;
-    padding: 17px;
+    padding: 14px;
     text-align: center;
     font-size: 21px;
     font-weight: 850;
@@ -188,7 +181,7 @@ section[data-testid="stSidebar"] .block-container {
     border: 1px solid #efa7a7;
     color: #b42318;
     border-radius: 14px;
-    padding: 17px;
+    padding: 14px;
     text-align: center;
     font-size: 21px;
     font-weight: 850;
@@ -199,7 +192,7 @@ section[data-testid="stSidebar"] .block-container {
     border: 1px solid #f1c66f;
     color: #925b00;
     border-radius: 14px;
-    padding: 17px;
+    padding: 14px;
     text-align: center;
     font-size: 21px;
     font-weight: 850;
@@ -209,8 +202,8 @@ section[data-testid="stSidebar"] .block-container {
     background: #f7f9fc;
     border: 1px solid #e1e8ef;
     border-radius: 10px;
-    padding: 12px 14px;
-    margin: 7px 0;
+    padding: 10px 14px;
+    margin: 5px 0;
     color: #526579;
 }
 
@@ -218,7 +211,7 @@ section[data-testid="stSidebar"] .block-container {
     background: white;
     border: 1px solid #d8e4ee;
     border-radius: 12px;
-    padding: 13px 5px;
+    padding: 11px 5px;
     text-align: center;
     box-shadow: 0 3px 10px rgba(20,45,70,.05);
 }
@@ -233,15 +226,15 @@ section[data-testid="stSidebar"] .block-container {
     color: #123b5c;
     font-size: 18px;
     font-weight: 850;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .step-card {
     background: white;
     border: 1px solid #dce5ed;
     border-radius: 15px;
-    padding: 17px;
-    min-height: 150px;
+    padding: 15px;
+    min-height: 135px;
     box-shadow: 0 4px 14px rgba(20,45,70,.05);
 }
 
@@ -254,7 +247,7 @@ section[data-testid="stSidebar"] .block-container {
     background: #123c5e;
     color: white;
     font-weight: 850;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .step-title {
@@ -274,9 +267,9 @@ section[data-testid="stSidebar"] .block-container {
     background: white;
     border: 1px solid #dce5ed;
     border-radius: 14px;
-    padding: 18px;
+    padding: 15px;
     text-align: center;
-    min-height: 110px;
+    min-height: 100px;
     box-shadow: 0 4px 14px rgba(20,45,70,.05);
 }
 
@@ -303,8 +296,8 @@ section[data-testid="stSidebar"] .block-container {
     border-right: 1px solid #dce5ed;
     border-bottom: 1px solid #dce5ed;
     border-radius: 9px;
-    padding: 11px 13px;
-    margin: 7px 0;
+    padding: 9px 13px;
+    margin: 5px 0;
     color: #4d6074;
 }
 
@@ -312,7 +305,7 @@ section[data-testid="stSidebar"] .block-container {
     text-align: center;
     color: #8a98a7;
     font-size: 12px;
-    padding: 40px 0 15px;
+    padding: 28px 0 12px;
 }
 
 .stButton > button {
@@ -335,6 +328,20 @@ div[data-testid="stMetric"] {
     border: 1px solid #dce5ed;
     padding: 12px;
     border-radius: 12px;
+}
+
+/* Keep cards, buttons and sections visually consistent */
+[data-testid="stHorizontalBlock"] {
+    gap: 1rem;
+}
+
+[data-testid="stVerticalBlock"] {
+    gap: 0.65rem;
+}
+
+.stButton {
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
 }
 
 </style>
