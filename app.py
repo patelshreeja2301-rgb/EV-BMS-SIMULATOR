@@ -31,6 +31,15 @@ st.markdown("""
 header {
     visibility: visible !important;
     display: block !important;
+    opacity: 1 !important;
+}
+
+/* Keep the sidebar open/close controls available */
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapseButton"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 footer {
@@ -38,6 +47,12 @@ footer {
 }
 
 html { scroll-behavior: smooth; }
+
+/* Consistent vertical spacing across the dashboard */
+.stAppViewContainer .main .block-container {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+}
 
 .stApp {
     background: #f6f9fc;
@@ -113,20 +128,23 @@ section[data-testid="stSidebar"] .block-container {
 
 .section {
     scroll-margin-top: 20px;
-    margin-top: 26px;
+    margin-top: 0;
+    height: 0;
 }
 
 .section-title {
     color: #102f50;
     font-size: 25px;
+    line-height: 1.2;
     font-weight: 850;
-    margin: 0 0 10px;
+    margin: 24px 0 10px;
 }
 
 .section-sub {
     color: #6b7d90;
-    margin-top: -4px;
+    margin-top: -2px;
     margin-bottom: 12px;
+    line-height: 1.45;
 }
 
 .metric-card {
@@ -332,12 +350,20 @@ div[data-testid="stMetric"] {
 
 /* Keep cards, buttons and sections visually consistent */
 [data-testid="stHorizontalBlock"] {
-    gap: 1rem;
+    gap: 1rem !important;
+    align-items: stretch !important;
 }
 
 [data-testid="stVerticalBlock"] {
-    gap: 0.65rem;
+    gap: 0.55rem !important;
 }
+
+/* Keep metric cards aligned to the same height */
+.metric-card {
+    height: 100%;
+    box-sizing: border-box;
+}
+
 
 .stButton {
     margin-top: 0.15rem;
@@ -538,8 +564,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.write("")
-
 # -------------------- LIVE OVERVIEW --------------------
 
 st.markdown('<div class="section-title">LIVE BATTERY OVERVIEW</div>',
@@ -688,8 +712,6 @@ for i, value in enumerate(cell_values):
         </div>
         """, unsafe_allow_html=True)
 
-st.write("")
-
 cv1, cv2, cv3 = st.columns(3)
 
 with cv1:
@@ -770,8 +792,6 @@ if status != "NORMAL":
         st.error(f"OVER-CURRENT DETECTED  |  Current = {st.session_state.current:.1f} A  |  Limit = 30 A")
     elif status == "OVERHEATING":
         st.error(f"OVERHEATING DETECTED  |  Temperature = {st.session_state.temperature:.1f} °C  |  Limit = 60 °C")
-
-st.write("")
 
 p1, p2, p3, p4 = st.columns(4)
 
