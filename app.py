@@ -23,14 +23,24 @@ st.markdown("""
 [data-testid="stToolbar"] {
     display: none !important;
 }
+/* Hide Streamlit menu and footer, but KEEP header/sidebar toggle visible */
+
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
 #MainMenu {
-    visibility: hidden !important;
+    display: none !important;
 }
-header {
-    visibility: hidden !important;
-}
+
 footer {
-    visibility: hidden !important;
+    display: none !important;
+}
+
+/* Keep Streamlit header visible so sidebar can be opened again */
+header {
+    visibility: visible !important;
+    display: block !important;
 }
 
 /* Keep the dashboard itself fully visible */
