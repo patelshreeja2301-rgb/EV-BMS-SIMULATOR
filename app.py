@@ -19,28 +19,8 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-/* Keep Streamlit header visible so the sidebar can always be reopened */
-[data-testid="stToolbar"] {
-    display: none !important;
-}
-
-#MainMenu {
-    display: none !important;
-}
-
-header {
-    visibility: visible !important;
-    display: block !important;
-    opacity: 1 !important;
-}
-
-/* Keep the sidebar open/close controls available */
-[data-testid="stSidebarCollapsedControl"],
-[data-testid="stSidebarCollapseButton"] {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+/* Keep Streamlit header and sidebar controls available */
+/* Do not hide header/toolbar: this keeps the sidebar open/close button working. */
 
 footer {
     display: none !important;
@@ -50,8 +30,8 @@ html { scroll-behavior: smooth; }
 
 /* Consistent vertical spacing across the dashboard */
 .stAppViewContainer .main .block-container {
-    padding-top: 1rem;
-    padding-bottom: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 1.25rem;
 }
 
 .stApp {
@@ -61,8 +41,8 @@ html { scroll-behavior: smooth; }
 
 .block-container {
     max-width: 1450px;
-    padding-top: 1.0rem;
-    padding-bottom: 2.2rem;
+    padding-top: 0.75rem;
+    padding-bottom: 1.5rem;
 }
 
 section[data-testid="stSidebar"] {
@@ -129,7 +109,7 @@ section[data-testid="stSidebar"] .block-container {
 .section {
     scroll-margin-top: 20px;
     margin-top: 0;
-    height: 0;
+    height: 1px;
 }
 
 .section-title {
@@ -142,8 +122,8 @@ section[data-testid="stSidebar"] .block-container {
 
 .section-sub {
     color: #6b7d90;
-    margin-top: -2px;
-    margin-bottom: 12px;
+    margin-top: 0;
+    margin-bottom: 14px;
     line-height: 1.45;
 }
 
